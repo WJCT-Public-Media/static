@@ -1,0 +1,995 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta name="robots" content="noindex, nofollow">
+</head>
+
+<head>
+  <title>WJCT News 89.9 Radio Schedule Widget</title>
+</head>
+
+<body>
+  <link
+    href="https://npr.brightspotcdn.com/resource/00000177-1bc0-debb-a57f-dfcf4a950000/styleguide/All.min.e6976c6e1ab7d1342a66cb1560f836fa.gz.css"
+    rel="stylesheet" type="text/css" />
+  <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+  <style>
+  @import url("https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+  :root {
+    --WJCT-primary: #006bb6;
+    --WJCT-secondary: #40c4ff;
+    --WJCT-tertiary: #2c3e50;
+    --WJCT-light-text: white;
+    --WJCT-red: #d50000;
+    --bodyFont: "Montserrat", sans-serif;
+    --primaryFont: "Montserrat", sans-serif;
+    --primaryHeadlineFont: "Merriweather", serif;
+    --secondaryHeadlineFont: "Merriweather", serif;
+    --secHlFont: "Merriweather", serif;
+    --headerBgColor: #006bb6;
+    --buttonHeight: 40px;
+    --WJCT-link: #40c4ff;
+    --headline-1: 5rem;
+    --headerMenuTextColorHover: var(--WJCT-secondary);
+  }
+
+  html {
+    font-family: var(--primaryFont);
+  }
+
+  .AlertBar-message {
+    color: white;
+    font-weight: 600;
+    padding: 2rem;
+  }
+
+  p,
+  .ArticlePage-authorInfo-bio-content {
+    line-height: 1.7;
+  }
+
+  .FranchisePage-description,
+  .PodcastPage-description,
+  .RadioShowPage-description,
+  .ArticlePage-authorInfo-bio-content {
+    font-size: 1.8rem;
+  }
+
+  .PH-ham-m-content,
+  .PH-ham-m-content,
+  .PH-ham-m-wrapper {
+    background-color: var(--WJCT-tertiary);
+  }
+
+  .BrightspotPersistentPlayer-drawer {
+    background: var(--WJCT-tertiary);
+  }
+
+  .NavI .NavLink {
+    font-family: var(--primaryFont);
+  }
+
+  svg.chevron,
+  .NavI .NavLink,
+  .NavI-text.gtm_nav_cat,
+  .PH-ham-m .Nav .NavI-text,
+  .PH-ham-m-content .NavI .NavigationLink,
+  .PH-ham-m .Navigation .NavI-text span {
+    color: var(--WJCT-light-text);
+  }
+
+  .NavI-text.gtm_nav_cat span:hover,
+  .PH-ham-m .Navigation .NavI-text span:hover, 
+	.PH-nav-bar .NavI:hover .NavI-text {
+    color: var(--WJCT-secondary);
+    text-decoration: none;
+  }
+
+  nav.DropdownNavigation.gtm_nav .NavI-items-item.gtm_nav_subcat a:hover,
+  .PH-ham-m-content .NavI .NavigationLink:hover {
+    color: var(--WJCT-link);
+    text-decoration: none;
+  }
+
+    nav.DropdownNavigation.gtm_nav {
+        height: auto;
+    }
+
+  .close-x,
+  .NavI-more svg {
+    fill: var(--WJCT-light-text);
+  }
+
+  .PH-donate-button.gtm_donate {
+    background-color: var(--WJCT-red);
+  }
+
+  .PH-donate-button.gtm_donate {
+    font-size: 1.35rem;
+    font-weight: 900;
+    line-height: 1.2;
+  }
+
+  footer.Page-footer {
+    background-color: var(--WJCT-tertiary);
+  }
+
+  .Page-footer-branding {
+    background-color: black;
+  }
+
+  ul.NavI-items {
+    padding: 0px !important;
+  }
+
+  nav.DropdownNavigation.gtm_nav li.NavI-items-item.gtm_nav_subcat:hover {
+    background-color: rgba(44, 62, 80, 0.2);
+    color: var(--WJCT-primary);
+  }
+
+  .PH-nav-bar {
+    background: none;
+  }
+
+  .PH-nav-bar .NavI .NavI-items .NavigationLink {
+    border-bottom: 0px;
+  }
+
+  ul.NavI-items {
+    background-color: var(--WJCT-tertiary) !important;
+  }
+
+  .NavI .NavigationLink {
+    color: white;
+  }
+
+  .PromoA-category,
+  .PromoB-category,
+  .PromoC-category {
+    display: none;
+  }
+
+  .PromoA-media,
+  .PromoB-media,
+  .PromoC-media {
+    padding-bottom: 10px;
+  }
+
+  .NavI-text {
+    font-weight: 700;
+  }
+
+  li.NavI-items-item.gtm_nav_subcat {
+    font-weight: 500;
+  }
+
+  button.BrightspotPersistentPlayer-volumeControl-toggle {
+    color: black;
+    background-color: #ffcc00;
+    border-radius: 50%;
+    margin-top: 7px;
+    height: 30px;
+    width: 30px;
+  }
+
+  .BrightspotPersistentPlayer-volumeControl-toggle:after,
+  .BrightspotPersistentPlayer-volumeControl-toggleMobile:after {
+    opacity: 0;
+  }
+
+  .noUi-target.noUi-rtl.noUi-vertical.noUi-txt-dir-ltr,
+  .noUi-handle.noUi-handle-lower {
+    width: 8px;
+  }
+
+  .BrightspotPersistentPlayer-drawerToggle {
+    background-color: var(--WJCT-secondary);
+    border-radius: 5px;
+  }
+
+  .BrightspotPersistentPlayer-drawerToggle {
+    padding-right: 0px;
+  }
+
+  .BrightspotPersistentPlayer-tabletDesktopExtraInfo {
+    display: none;
+  }
+
+  .BrightspotPersistentPlayer-drawerControls,
+  .PH-donate-button {
+    height: var(--buttonHeight);
+  }
+
+  .PH-search-button-mobile .icon-magnify,
+  .PH-search-button .icon-magnify,
+  .PH-menu-trigger .burger-menu,
+  .PH-ham-m-close .close-x {
+    fill: white;
+    stroke-width: 1px;
+    stroke: white;
+  }
+
+  ps-header.PH {
+    background-image: url("http://npr-brightspot.s3.amazonaws.com/aa/4d/59ec9482439f9ab1e1a6bbc35122/wjct-news-header-image.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding-top: 45px;
+    border-bottom: none;
+  }
+
+  [data-header-sticky] ps-header.PH {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+  }
+
+  ps-brightspot-persistent-player.BrightspotPersistentPlayer {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+  }
+
+  ps-brightspot-persistent-player.BrightspotPersistentPlayer>.BrightspotPersistentPlayer-streamInfo {
+    order: 1;
+  }
+
+  ps-brightspot-persistent-player.BrightspotPersistentPlayer>.BrightspotPersistentPlayer-playerControls {
+    order: 2;
+  }
+
+  ps-brightspot-persistent-player.BrightspotPersistentPlayer>.BrightspotPersistentPlayer-volumeControl {
+    order: 3;
+  }
+
+  ps-brightspot-persistent-player.BrightspotPersistentPlayer>.BrightspotPersistentPlayer-drawerControls {
+    order: 4;
+  }
+
+  .BrightspotPersistentPlayer-streamInfo {
+    text-align: right;
+    display: flex;
+    flex-direction: column;
+    padding: 2rem;
+  }
+
+  .BrightspotPersistentPlayer-playerControls {
+    margin-right: 0;
+  }
+
+  .BrightspotPersistentPlayer-name,
+  .BrightspotPersistentPlayer-programName {
+    font-family: "Montserrat";
+    font-weight: bold;
+  }
+
+  .BrightspotPersistentPlayer-name {
+    order: 2;
+    font-size: 1.3rem;
+  }
+
+  .BrightspotPersistentPlayer-programName {
+    order: 1;
+    font-size: 1.6rem;
+  }
+
+  .BrightspotPersistentPlayer-drawerControls {
+    margin-left: 3rem;
+  }
+
+  .BrightspotPersistentPlayer-volumeControl {
+    display: flex;
+    flex-direction: row;
+    margin-right: 0;
+  }
+
+  button.BrightspotPersistentPlayer-volumeControl-toggle {
+    order: 2;
+    margin-right: 0;
+  }
+
+  .BrightspotPersistentPlayer-volumeControl-slider {
+    order: 1;
+    padding-right: 10px;
+    padding-left: 10px;
+  }
+
+  button.StreamPill {
+    background-color: var(--WJCT-tertiary);
+    color: white;
+  }
+
+  .BrightspotPersistentPlayer {
+    padding-right: 10px;
+  }
+
+  .BrightspotPersistentPlayer-schedule,
+  figcaption.Figure-caption,
+  .NavI .NavigationLink,
+  .PromoC-category,
+  .PromoC-byline,
+  .PromoB-category,
+  .PromoB-byline,
+  .PromoA-category,
+  .PromoA-byline,
+  .ArticlePage-breadcrumbs-wrapper,
+  .ArticlePage-authorName,
+  .ArticlePage-datePublished,
+  .Figure-source,
+  .Figure-credit,
+  .ArticlePage-tags-list a.Link,
+  .ArticlePage-tags-heading,
+  span.StreamPill-text,
+  span.BrightspotPersistentPlayer-drawerToggle-text {
+    font-family: var(--primaryFont);
+  }
+
+  .ArticlePage-datePublished {
+    font-style: italic;
+  }
+
+  .BrightspotPersistentPlayer-schedule,
+  .PromoA-byline,
+  .PromoB-byline,
+  .PromoC-byline {
+    font-weight: 600;
+  }
+
+  .Figure-content {
+    display: flex;
+    flex-direction: column;
+  }
+
+  figcaption.Figure-caption {
+    order: 1;
+    justify-content: flex-start;
+  }
+
+  .Figure-credit-container {
+    order: 2;
+    flex-direction: row;
+    justify-content: flex-start;
+  }
+
+    .PromoD-cta-button[style="background-color:#ee4036"] {
+        color:white;
+        font-weight: 600;
+        font-family: Georgia, 'Times New Roman', Times, serif;
+        font-style: italic;
+        border-radius: 0;
+        margin: 2rem auto 0;
+        text-transform: none;
+        padding: 1rem 2rem;
+    }
+
+  @media only screen and (min-width: 1920px) {}
+
+  @media only screen and (min-width: 1440px) {
+
+    [data-header-sticky] .BrightspotPersistentPlayer-name,
+    [data-header-sticky].BrightspotPersistentPlayer-programName {
+      max-width: 700px;
+    }
+  }
+
+  @media only screen and (min-width: 1280px) {
+
+    .BrightspotPersistentPlayer-name,
+    .BrightspotPersistentPlayer-programName {
+      max-width: 250px;
+    }
+
+    .BrightspotPersistentPlayer-tabletDesktopExtraInfo {
+      margin-left: 425px;
+    }
+
+    .PH-logo {
+      position: absolute;
+      z-index: 50;
+    }
+
+    [data-header-sticky] .PH-logo {
+      position: relative;
+    }
+
+    .PH-logo {
+      display: block;
+      padding-top: 40px;
+    }
+
+    .PH-logo img {
+      width: 534px;
+      height: 98px;
+      max-height: 98px;
+    }
+
+    [data-header-sticky] .PH-logo {
+      padding-top: 0px;
+    }
+
+    [data-header-sticky] .PH-logo img {
+      width: 216px;
+      height: 40px;
+      max-height: 40px;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: contain;
+    }
+
+    [data-toggle-header="hamburger-menu"] .PH-ham-m {
+      z-index: 52;
+    }
+
+    .PH-top-bar {
+      position: relative;
+      z-index: 51;
+      width: 100%;
+      display: flex;
+      height: 100%;
+      align-items: flex-start;
+    }
+
+    .BrightspotPersistentPlayer {
+      padding-right: 0 !important;
+    }
+  }
+
+  @media only screen and (min-width: 1024px) {
+    .BrightspotPersistentPlayer-drawerToggle {
+      padding-right: 12px;
+    }
+  }
+
+  @media only screen and (min-width: 768px) {
+    .BrightspotPersistentPlayer {
+      padding-right: 30px;
+    }
+
+    .PH-persistent-player {
+      background: transparent;
+    }
+
+    [data-header-sticky] .PH-persistent-player {
+      height: 30px;
+      margin-bottom: 1.8rem;
+    }
+  }
+
+  @media only screen and (max-width: 767px) {
+    h1.ArticlePage-headline {
+      font-size: 3rem;
+    }
+
+    .PH-donate-button.gtm_donate a.Link {
+      color: transparent;
+      margin-left: -90px;
+    }
+
+    .PH-persistent-player {
+      background-color: var(--WJCT-tertiary);
+    }
+
+    .PH-donate-button.gtm_donate a.Link:after {
+      color: white;
+      content: "Donate";
+    }
+
+    .BrightspotPersistentPlayer-streamInfo {
+      align-items: flex-start;
+      padding-left: 0;
+    }
+
+    ps-brightspot-persistent-player.BrightspotPersistentPlayer {
+      padding-left: 2rem;
+      padding-right: 2rem;
+    }
+
+    .PH-logo {
+      order: 2;
+      margin-right: 0px;
+    }
+
+    .PH-logo img {
+      max-width: calc(100vw - 4rem - 160px);
+    }
+  }
+
+  button.PH-menu-trigger,
+  button.PH-ham-m-close {
+    order: 1;
+  }
+
+  .PH-top-bar-content {
+    display: flex;
+    justify-content: flex-start;
+    flex: none;
+  }
+
+  .PH-top-bar {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  ps-header.PH {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+  }
+
+  .ArticlePage-contentInfo {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .ArticlePage-actions {
+    display: flex;
+    width: 100%;
+    justify-content: flex-end;
+  }
+  }
+
+  div#latestnewscast {
+    text-align: center;
+    line-height: 3;
+  }
+
+  .HtmlModule {
+    margin-bottom: 0px;
+  }
+
+  .Enhancement .PromoXSmall-title .Link,
+  .PromoXSmall-title .Link {
+    text-decoration: none;
+    color: var(--primaryTextColor);
+    font-family: var(--secondaryHeadlineFont), Arial, Helvetica, sans-serif;
+    font-size: 1.3rem;
+  }
+
+  .ListF {
+    padding: 0 20px;
+  }
+
+  .ListTitles-header-title,
+  .ListE-header-title,
+  .ListF-header-title {
+    text-transform: uppercase;
+  }
+
+  /* Footer logos */
+  
+  #family-of-brands .ListLogos-items-item:nth-child(2)::before {
+    content: "[";
+    margin-right: 2rem;
+  }
+
+  #family-of-brands .ListLogos-items-item:last-child::after {
+    content: "]";
+    margin-left: 2rem;
+  }
+
+  #family-of-brands .ListLogos-items-item:nth-child(2)::before,
+  #family-of-brands .ListLogos-items-item:last-child::after {
+    font-size: 50px;
+    font-weight: 200;
+    margin-top: -1rem;
+  }
+
+  @media only screen and (min-width: 768px) {
+    [class$="-column"] .ListF {
+      margin-right: 0px;
+    }
+
+    .RadioShowPage-top {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .RadioShowPage-top-wrapper {
+      order: 1;
+    }
+
+    .RadioShowPage-cover-art {
+      order: 2;
+    }
+  }
+
+  #whgtdwisponsors .ThreeColumnContainer-column {
+    padding: 0 2rem;
+    display: flex;
+    align-items: flex-end;
+  }
+
+  #whgtdwisponsors .Enhancement {
+    margin: 0;
+  }
+
+  .ArticlePage-breadcrumbs-wrapper {
+    display: none;
+  }
+
+  .RSEP-social,
+  .PCEP-social {
+    display: none;
+  }
+
+  @media screen and (min-width: 1280px) {
+    .FourColumnContainer-row {
+      align-items: center;
+      column-gap: 1rem;
+    }
+  }</style>
+  <style>
+    :root {
+      --headerBgColorGrey: rgb(135, 135, 135);
+    }
+
+
+    .ListG-header-title.radioSchedule {
+      font-weight: 800;
+    }
+
+    .PromoA-category,
+    .PromoB-category,
+    .PromoC-category {
+      display: flex;
+    }
+
+    /* Make the promo cards on the left column left aligned.*/
+    .PromoD-content {
+      align-items: start;
+      text-align: left;
+    }
+
+    /* Remove extra title from Promo Cards */
+    .PromoD-title {
+      display: none;
+    }
+
+    div.TwoColumnContainer7030-column:nth-child(2) .PromoA-media {
+      margin: 0;
+      flex: 0;
+    }
+
+    .PromoA-title,
+    .PromoB-title,
+    .PromoC-title {
+      font-family: 'Montserrat';
+    }
+
+    .PromoD-title {
+      font-size: 32px;
+    }
+
+    .schedule {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      background: rgba(240, 240, 240);
+    }
+
+    .schedule li {
+      line-height: 1.6;
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      padding: 10px;
+      border-bottom: 1px solid var(--secC2);
+    }
+
+    ul#scheduleCurrent li:last-child {
+      border-bottom: 0px;
+    }
+
+    .schedule strong {
+      margin-right: 1rem;
+      min-width: 10rem;
+      text-align: right;
+    }
+
+    button.play-button {
+      margin-left: 1rem;
+      display: inline-block;
+      cursor: pointer;
+      line-height: 1;
+      font-size: 1.2rem;
+    }
+
+    .play-button svg {
+      height: 2rem;
+      fill: currentColor;
+      vertical-align: middle;
+    }
+
+    .schedule .current-program {
+      background-color: var(--primaryColor2);
+      color: white;
+    }
+
+    .programName {
+      margin-left: 1rem;
+    }
+
+    .programTime {
+      font-weight: 700;
+      margin-right: 1rem;
+      min-width: 9rem;
+      display: inline-block;
+    }
+
+    ul#scheduleCurrent ps-stream {
+      margin-left: -5px;
+    }
+
+    [small] .StreamPill {
+      flex-direction: row;
+      min-width: 146px;
+      justify-content: center;
+    }
+
+    /* accordion  */
+
+    div.accordion {
+      margin: 1rem 0;
+    }
+
+    .accordion>input {
+      position: absolute;
+      opacity: 0;
+      z-index: -1;
+    }
+
+    .accordion>label {
+      display: block;
+      padding: 0.5em;
+      color: #fff;
+      font-weight: 600;
+      background: var(--headerBgColorGrey);
+      cursor: pointer;
+    }
+
+    .accordion>label[for="scheduleEarlierCheck"]::after {
+      content: " ▲";
+      font-size: 0.8em;
+    }
+
+    .accordion>label[for="scheduleLaterCheck"]::after {
+      content: " ▼";
+      font-size: 0.8em;
+    }
+
+    #scheduleEarlierCheck:checked~label[for="scheduleEarlierCheck"]::after {
+      content: " ▼";
+    }
+
+    #scheduleLaterCheck:checked~label[for="scheduleLaterCheck"]::after {
+      content: " ▲";
+    }
+
+    .accordion>input:not(:checked)~ul {
+      height: auto;
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.5s ease-out;
+    }
+
+    .accordion>input:checked~ul {
+      transition: max-height 0.5s ease-out;
+      height: auto;
+      max-height: 1000px;
+    }
+
+    #scheduleEarlierCheck,
+    #scheduleLaterCheck {
+      display: none;
+    }
+
+    /* accordion end */
+
+    /* Blinky On Air Light */
+    .text-danger-glow {
+      color: var(--WJCT-red);
+      padding-left: .5rem;
+      /* text-shadow: 0 0 20px var(--WJCT-red), 0 0 30px var(--WJCT-red), 0 0 40px var(--WJCT-red), 0 0 50px var(--WJCT-red); */
+    }
+
+    .blink {
+      animation: blinker 2s cubic-bezier(.5, 0, 1, 1) infinite alternate;
+    }
+
+    @keyframes blinker {
+      from {
+        opacity: 1;
+      }
+
+      to {
+        opacity: .25;
+      }
+    }
+
+    /* Blinky On Air Light End */
+
+    @media (max-width: 600px) {
+      .schedule li {
+        display: flex;
+        flex-direction: column;
+      }
+
+      .schedule li .topRow {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+      }
+
+      .schedule li .topRow .programTime,
+      .schedule li .topRow .StreamPill,
+      .schedule li .topRow ps-stream {
+        /*         width: 100%; */
+      }
+
+      .schedule li .programName {
+        width: 100%;
+      }
+    }
+  </style>
+
+  <div class="ListG-header-title radioSchedule">Today's Radio Schedule</div>
+
+  <div class="accordion">
+    <input type="checkbox" id="scheduleEarlierCheck">
+    <ul class="schedule" id="scheduleEarlier" small></ul>
+    <label for="scheduleEarlierCheck">Earlier Today</label>
+  </div>
+
+  <ul class="schedule" id="scheduleCurrent" small></ul>
+
+  <div class="accordion">
+    <input type="checkbox" id="scheduleLaterCheck">
+    <label for="scheduleLaterCheck">Later Today</label>
+    <ul class="schedule" id="scheduleLater" small></ul>
+  </div>
+
+  <p><a href="https://news.wjct.org/wjct-89-9-fm-radio-schedule#weekly-schedule"><em>View Weekly Schedule</em></a></p>
+
+  <script>
+    function getRadioSchedule(numShowsBefore, numShowsAfter) {
+      fetch("https://api.composer.nprstations.org/v1/widget/5187f37be1c838d5f207363f/day?format=json")
+        .then(res => res.json())
+        .then(data => {
+          const schedule = data.onToday;
+          let processedShows = processShows(schedule); // Process all shows and assign an index.
+          let currentIndex = getCurrentShowIndex(processedShows); // Get current show index
+
+          // Filter shows based on the before and after criteria
+          let filteredShows = processedShows.filter((show, index) => {
+            return index >= (currentIndex - numShowsBefore) && index <= (currentIndex + numShowsAfter);
+          });
+
+          // Add each show to the scheduleCurrent
+          filteredShows.forEach((show) => {
+            addShowToSchedule(show.item, 'scheduleCurrent', show.index - currentIndex);
+          });
+
+          // Add remaining shows to the appropriate list
+          processedShows.forEach((show) => {
+            if (!filteredShows.includes(show)) {
+              let list = show.index < currentIndex
+                ? 'scheduleEarlier'
+                : 'scheduleLater';
+              addShowToSchedule(show.item, list, show.index - currentIndex);
+            }
+          });
+        })
+        .catch(error => console.error(error));
+    }
+
+    function processShows(schedule) {
+      // Add an index to each show in the schedule
+      return schedule.map((item, index) => ({ item, index }));
+    }
+
+    function getCurrentShowIndex(processedShows) {
+      const currentTime = getCurrentTimeInMinutes();
+      let currentIndex = -1;
+      for (let i = 0; i < processedShows.length; i++) {
+        const startTime = formatStartTime(processedShows[i].item.start_time);
+        const endTime = formatStartTime(processedShows[i].item.end_time);
+
+        const programStartsAt = parseTimeToMinutesSinceMidnight(startTime);
+        const programEndsAt = parseTimeToMinutesSinceMidnight(endTime);
+
+        // The current program is the one which hasn't ended yet.
+        if (programEndsAt > currentTime) {
+          currentIndex = i;
+          break;
+        }
+      }
+      return currentIndex;
+    }
+
+    function addShowToSchedule(item, currentList, count) {
+      const startTime = formatStartTime(item.start_time);
+      const programName = item.program.name;
+      const programLink = item.program.program_link;
+      const scheduleList = document.getElementById(currentList);
+
+      let scheduleItem = "";
+      if (programLink) {
+        scheduleItem = `<a href="${programLink}"><li><div class="topRow"><span class="programTime">${startTime}</span>`;
+        if (currentList === "scheduleCurrent" && count === 0) {
+          scheduleItem += `<ps-stream data-stream-name="WJCT News 89.9" data-stream-id="stream-00000170-3733-de9f-abf8-3fb770880000"
+                    data-stream-ucsid="5187f37be1c838d5f207363f" data-stream-program-name="WJCT News 89.9">
+                    <ps-stream-url data-stream-format="audio/mp3"
+                      data-stream-url="https://playerservices.streamtheworld.com/api/livestream-redirect/WJCTFM.mp3">
+                    </ps-stream-url>`;
+        }
+        scheduleItem += `<button class="StreamPill">
+                  <span class="StreamPill-iconWrapper">
+                    <svg class="StreamPill-icon">
+                      <use xlink:href="#play-icon"></use>
+                    </svg>
+                    <svg class="StreamPill-iconPause">
+                      <use xlink:href="#pause-icon"></use>
+                    </svg>
+                  </span>
+                  <span class="StreamPill-text"><span class="StreamPill-duration">${currentList === "scheduleCurrent" && count === 0 ? 'On Air Now <i class="fa fa-circle text-danger-glow blink"></i>' : 'On Demand'}</span>
+                </span>
+              </button>
+              </div>
+            <span class="programName">${programName}</span></li></a>`;
+      } else {
+        scheduleItem = `<li><div class="topRow"><span class="programTime">${startTime}</span></div><span class="programName">${programName}</span></li>`;
+      }
+
+      scheduleList.innerHTML += scheduleItem;
+
+      if (currentList === "scheduleCurrent" && count === 0) {
+        const listItem = scheduleList.lastElementChild;
+        listItem.style.backgroundColor = "var(--primaryColor2)";
+        listItem.style.color = "white";
+      }
+    }
+
+    function addShowsToCurrentList(items) {
+      items.forEach((item, index) => {
+        addShowToSchedule(item, 'scheduleCurrent', index);
+      });
+    }
+
+    function formatStartTime(startTime) {
+      const timeParts = startTime.split(":");
+      let hours = parseInt(timeParts[0]);
+      const minutes = timeParts[1];
+      let period = "a.m.";
+      if (hours >= 12) {
+        period = "p.m.";
+        if (hours > 12) {
+          hours -= 12;
+        }
+      }
+      if (hours === 0) {
+        hours = 12;
+      }
+      return `${hours}:${minutes} ${period}`;
+    }
+
+    function parseTimeToMinutesSinceMidnight(time) {
+      const [hoursMinutes, period] = time.split(" ");
+      const [hours, minutes] = hoursMinutes.split(":");
+      let totalMinutes = parseInt(hours) * 60 + parseInt(minutes);
+      if (period === 'p.m.' && hours !== '12') {
+        totalMinutes += 12 * 60;
+      }
+      return totalMinutes;
+    }
+
+    function getCurrentTimeInMinutes() {
+      const date = new Date();
+      return date.getHours() * 60 + date.getMinutes();
+    }
+
+    getRadioSchedule(1, 1);
+    // Change the variables above to set the number of shows to show before and after the current show.
+  </script>
+</body>
+
+</html>
