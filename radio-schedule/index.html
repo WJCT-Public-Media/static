@@ -15,609 +15,610 @@
     rel="stylesheet" type="text/css" />
   <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
   <style>
-  @import url("https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+    @import url("https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 
-  :root {
-    --WJCT-primary: #006bb6;
-    --WJCT-secondary: #40c4ff;
-    --WJCT-tertiary: #2c3e50;
-    --WJCT-light-text: white;
-    --WJCT-red: #d50000;
-    --bodyFont: "Montserrat", sans-serif;
-    --primaryFont: "Montserrat", sans-serif;
-    --primaryHeadlineFont: "Merriweather", serif;
-    --secondaryHeadlineFont: "Merriweather", serif;
-    --secHlFont: "Merriweather", serif;
-    --headerBgColor: #006bb6;
-    --buttonHeight: 40px;
-    --WJCT-link: #40c4ff;
-    --headline-1: 5rem;
-    --headerMenuTextColorHover: var(--WJCT-secondary);
-  }
-
-  html {
-    font-family: var(--primaryFont);
-  }
-
-  .AlertBar-message {
-    color: white;
-    font-weight: 600;
-    padding: 2rem;
-  }
-
-  p,
-  .ArticlePage-authorInfo-bio-content {
-    line-height: 1.7;
-  }
-
-  .FranchisePage-description,
-  .PodcastPage-description,
-  .RadioShowPage-description,
-  .ArticlePage-authorInfo-bio-content {
-    font-size: 1.8rem;
-  }
-
-  .PH-ham-m-content,
-  .PH-ham-m-content,
-  .PH-ham-m-wrapper {
-    background-color: var(--WJCT-tertiary);
-  }
-
-  .BrightspotPersistentPlayer-drawer {
-    background: var(--WJCT-tertiary);
-  }
-
-  .NavI .NavLink {
-    font-family: var(--primaryFont);
-  }
-
-  svg.chevron,
-  .NavI .NavLink,
-  .NavI-text.gtm_nav_cat,
-  .PH-ham-m .Nav .NavI-text,
-  .PH-ham-m-content .NavI .NavigationLink,
-  .PH-ham-m .Navigation .NavI-text span {
-    color: var(--WJCT-light-text);
-  }
-
-  .NavI-text.gtm_nav_cat span:hover,
-  .PH-ham-m .Navigation .NavI-text span:hover, 
-	.PH-nav-bar .NavI:hover .NavI-text {
-    color: var(--WJCT-secondary);
-    text-decoration: none;
-  }
-
-  nav.DropdownNavigation.gtm_nav .NavI-items-item.gtm_nav_subcat a:hover,
-  .PH-ham-m-content .NavI .NavigationLink:hover {
-    color: var(--WJCT-link);
-    text-decoration: none;
-  }
-
-    nav.DropdownNavigation.gtm_nav {
-        height: auto;
+    :root {
+      --WJCT-primary: #006bb6;
+      --WJCT-secondary: #40c4ff;
+      --WJCT-tertiary: #2c3e50;
+      --WJCT-light-text: white;
+      --WJCT-red: #d50000;
+      --bodyFont: "Montserrat", sans-serif;
+      --primaryFont: "Montserrat", sans-serif;
+      --primaryHeadlineFont: "Merriweather", serif;
+      --secondaryHeadlineFont: "Merriweather", serif;
+      --secHlFont: "Merriweather", serif;
+      --headerBgColor: #006bb6;
+      --buttonHeight: 40px;
+      --WJCT-link: #40c4ff;
+      --headline-1: 5rem;
+      --headerMenuTextColorHover: var(--WJCT-secondary);
     }
 
-  .close-x,
-  .NavI-more svg {
-    fill: var(--WJCT-light-text);
-  }
-
-  .PH-donate-button.gtm_donate {
-    background-color: var(--WJCT-red);
-  }
-
-  .PH-donate-button.gtm_donate {
-    font-size: 1.35rem;
-    font-weight: 900;
-    line-height: 1.2;
-  }
-
-  footer.Page-footer {
-    background-color: var(--WJCT-tertiary);
-  }
-
-  .Page-footer-branding {
-    background-color: black;
-  }
-
-  ul.NavI-items {
-    padding: 0px !important;
-  }
-
-  nav.DropdownNavigation.gtm_nav li.NavI-items-item.gtm_nav_subcat:hover {
-    background-color: rgba(44, 62, 80, 0.2);
-    color: var(--WJCT-primary);
-  }
-
-  .PH-nav-bar {
-    background: none;
-  }
-
-  .PH-nav-bar .NavI .NavI-items .NavigationLink {
-    border-bottom: 0px;
-  }
-
-  ul.NavI-items {
-    background-color: var(--WJCT-tertiary) !important;
-  }
-
-  .NavI .NavigationLink {
-    color: white;
-  }
-
-  .PromoA-category,
-  .PromoB-category,
-  .PromoC-category {
-    display: none;
-  }
-
-  .PromoA-media,
-  .PromoB-media,
-  .PromoC-media {
-    padding-bottom: 10px;
-  }
-
-  .NavI-text {
-    font-weight: 700;
-  }
-
-  li.NavI-items-item.gtm_nav_subcat {
-    font-weight: 500;
-  }
-
-  button.BrightspotPersistentPlayer-volumeControl-toggle {
-    color: black;
-    background-color: #ffcc00;
-    border-radius: 50%;
-    margin-top: 7px;
-    height: 30px;
-    width: 30px;
-  }
-
-  .BrightspotPersistentPlayer-volumeControl-toggle:after,
-  .BrightspotPersistentPlayer-volumeControl-toggleMobile:after {
-    opacity: 0;
-  }
-
-  .noUi-target.noUi-rtl.noUi-vertical.noUi-txt-dir-ltr,
-  .noUi-handle.noUi-handle-lower {
-    width: 8px;
-  }
-
-  .BrightspotPersistentPlayer-drawerToggle {
-    background-color: var(--WJCT-secondary);
-    border-radius: 5px;
-  }
-
-  .BrightspotPersistentPlayer-drawerToggle {
-    padding-right: 0px;
-  }
-
-  .BrightspotPersistentPlayer-tabletDesktopExtraInfo {
-    display: none;
-  }
-
-  .BrightspotPersistentPlayer-drawerControls,
-  .PH-donate-button {
-    height: var(--buttonHeight);
-  }
-
-  .PH-search-button-mobile .icon-magnify,
-  .PH-search-button .icon-magnify,
-  .PH-menu-trigger .burger-menu,
-  .PH-ham-m-close .close-x {
-    fill: white;
-    stroke-width: 1px;
-    stroke: white;
-  }
-
-  ps-header.PH {
-    background-image: url("http://npr-brightspot.s3.amazonaws.com/aa/4d/59ec9482439f9ab1e1a6bbc35122/wjct-news-header-image.png");
-    background-repeat: no-repeat;
-    background-size: cover;
-    padding-top: 45px;
-    border-bottom: none;
-  }
-
-  [data-header-sticky] ps-header.PH {
-    padding-top: 1rem;
-    padding-bottom: 1rem;
-  }
-
-  ps-brightspot-persistent-player.BrightspotPersistentPlayer {
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-end;
-  }
-
-  ps-brightspot-persistent-player.BrightspotPersistentPlayer>.BrightspotPersistentPlayer-streamInfo {
-    order: 1;
-  }
-
-  ps-brightspot-persistent-player.BrightspotPersistentPlayer>.BrightspotPersistentPlayer-playerControls {
-    order: 2;
-  }
-
-  ps-brightspot-persistent-player.BrightspotPersistentPlayer>.BrightspotPersistentPlayer-volumeControl {
-    order: 3;
-  }
-
-  ps-brightspot-persistent-player.BrightspotPersistentPlayer>.BrightspotPersistentPlayer-drawerControls {
-    order: 4;
-  }
-
-  .BrightspotPersistentPlayer-streamInfo {
-    text-align: right;
-    display: flex;
-    flex-direction: column;
-    padding: 2rem;
-  }
-
-  .BrightspotPersistentPlayer-playerControls {
-    margin-right: 0;
-  }
-
-  .BrightspotPersistentPlayer-name,
-  .BrightspotPersistentPlayer-programName {
-    font-family: "Montserrat";
-    font-weight: bold;
-  }
-
-  .BrightspotPersistentPlayer-name {
-    order: 2;
-    font-size: 1.3rem;
-  }
-
-  .BrightspotPersistentPlayer-programName {
-    order: 1;
-    font-size: 1.6rem;
-  }
-
-  .BrightspotPersistentPlayer-drawerControls {
-    margin-left: 3rem;
-  }
-
-  .BrightspotPersistentPlayer-volumeControl {
-    display: flex;
-    flex-direction: row;
-    margin-right: 0;
-  }
-
-  button.BrightspotPersistentPlayer-volumeControl-toggle {
-    order: 2;
-    margin-right: 0;
-  }
-
-  .BrightspotPersistentPlayer-volumeControl-slider {
-    order: 1;
-    padding-right: 10px;
-    padding-left: 10px;
-  }
-
-  button.StreamPill {
-    background-color: var(--WJCT-tertiary);
-    color: white;
-  }
-
-  .BrightspotPersistentPlayer {
-    padding-right: 10px;
-  }
-
-  .BrightspotPersistentPlayer-schedule,
-  figcaption.Figure-caption,
-  .NavI .NavigationLink,
-  .PromoC-category,
-  .PromoC-byline,
-  .PromoB-category,
-  .PromoB-byline,
-  .PromoA-category,
-  .PromoA-byline,
-  .ArticlePage-breadcrumbs-wrapper,
-  .ArticlePage-authorName,
-  .ArticlePage-datePublished,
-  .Figure-source,
-  .Figure-credit,
-  .ArticlePage-tags-list a.Link,
-  .ArticlePage-tags-heading,
-  span.StreamPill-text,
-  span.BrightspotPersistentPlayer-drawerToggle-text {
-    font-family: var(--primaryFont);
-  }
-
-  .ArticlePage-datePublished {
-    font-style: italic;
-  }
-
-  .BrightspotPersistentPlayer-schedule,
-  .PromoA-byline,
-  .PromoB-byline,
-  .PromoC-byline {
-    font-weight: 600;
-  }
-
-  .Figure-content {
-    display: flex;
-    flex-direction: column;
-  }
-
-  figcaption.Figure-caption {
-    order: 1;
-    justify-content: flex-start;
-  }
-
-  .Figure-credit-container {
-    order: 2;
-    flex-direction: row;
-    justify-content: flex-start;
-  }
-
-    .PromoD-cta-button[style="background-color:#ee4036"] {
-        color:white;
-        font-weight: 600;
-        font-family: Georgia, 'Times New Roman', Times, serif;
-        font-style: italic;
-        border-radius: 0;
-        margin: 2rem auto 0;
-        text-transform: none;
-        padding: 1rem 2rem;
+    html {
+      font-family: var(--primaryFont);
     }
 
-  @media only screen and (min-width: 1920px) {}
-
-  @media only screen and (min-width: 1440px) {
-
-    [data-header-sticky] .BrightspotPersistentPlayer-name,
-    [data-header-sticky].BrightspotPersistentPlayer-programName {
-      max-width: 700px;
-    }
-  }
-
-  @media only screen and (min-width: 1280px) {
-
-    .BrightspotPersistentPlayer-name,
-    .BrightspotPersistentPlayer-programName {
-      max-width: 250px;
+    .AlertBar-message {
+      color: white;
+      font-weight: 600;
+      padding: 2rem;
     }
 
-    .BrightspotPersistentPlayer-tabletDesktopExtraInfo {
-      margin-left: 425px;
+    p,
+    .ArticlePage-authorInfo-bio-content {
+      line-height: 1.7;
     }
 
-    .PH-logo {
-      position: absolute;
-      z-index: 50;
+    .FranchisePage-description,
+    .PodcastPage-description,
+    .RadioShowPage-description,
+    .ArticlePage-authorInfo-bio-content {
+      font-size: 1.8rem;
     }
 
-    [data-header-sticky] .PH-logo {
-      position: relative;
-    }
-
-    .PH-logo {
-      display: block;
-      padding-top: 40px;
-    }
-
-    .PH-logo img {
-      width: 534px;
-      height: 98px;
-      max-height: 98px;
-    }
-
-    [data-header-sticky] .PH-logo {
-      padding-top: 0px;
-    }
-
-    [data-header-sticky] .PH-logo img {
-      width: 216px;
-      height: 40px;
-      max-height: 40px;
-      background-position: center;
-      background-repeat: no-repeat;
-      background-size: contain;
-    }
-
-    [data-toggle-header="hamburger-menu"] .PH-ham-m {
-      z-index: 52;
-    }
-
-    .PH-top-bar {
-      position: relative;
-      z-index: 51;
-      width: 100%;
-      display: flex;
-      height: 100%;
-      align-items: flex-start;
-    }
-
-    .BrightspotPersistentPlayer {
-      padding-right: 0 !important;
-    }
-  }
-
-  @media only screen and (min-width: 1024px) {
-    .BrightspotPersistentPlayer-drawerToggle {
-      padding-right: 12px;
-    }
-  }
-
-  @media only screen and (min-width: 768px) {
-    .BrightspotPersistentPlayer {
-      padding-right: 30px;
-    }
-
-    .PH-persistent-player {
-      background: transparent;
-    }
-
-    [data-header-sticky] .PH-persistent-player {
-      height: 30px;
-      margin-bottom: 1.8rem;
-    }
-  }
-
-  @media only screen and (max-width: 767px) {
-    h1.ArticlePage-headline {
-      font-size: 3rem;
-    }
-
-    .PH-donate-button.gtm_donate a.Link {
-      color: transparent;
-      margin-left: -90px;
-    }
-
-    .PH-persistent-player {
+    .PH-ham-m-content,
+    .PH-ham-m-content,
+    .PH-ham-m-wrapper {
       background-color: var(--WJCT-tertiary);
     }
 
-    .PH-donate-button.gtm_donate a.Link:after {
-      color: white;
-      content: "Donate";
+    .BrightspotPersistentPlayer-drawer {
+      background: var(--WJCT-tertiary);
     }
 
-    .BrightspotPersistentPlayer-streamInfo {
-      align-items: flex-start;
-      padding-left: 0;
+    .NavI .NavLink {
+      font-family: var(--primaryFont);
+    }
+
+    svg.chevron,
+    .NavI .NavLink,
+    .NavI-text.gtm_nav_cat,
+    .PH-ham-m .Nav .NavI-text,
+    .PH-ham-m-content .NavI .NavigationLink,
+    .PH-ham-m .Navigation .NavI-text span {
+      color: var(--WJCT-light-text);
+    }
+
+    .NavI-text.gtm_nav_cat span:hover,
+    .PH-ham-m .Navigation .NavI-text span:hover,
+    .PH-nav-bar .NavI:hover .NavI-text {
+      color: var(--WJCT-secondary);
+      text-decoration: none;
+    }
+
+    nav.DropdownNavigation.gtm_nav .NavI-items-item.gtm_nav_subcat a:hover,
+    .PH-ham-m-content .NavI .NavigationLink:hover {
+      color: var(--WJCT-link);
+      text-decoration: none;
+    }
+
+    nav.DropdownNavigation.gtm_nav {
+      height: auto;
+    }
+
+    .close-x,
+    .NavI-more svg {
+      fill: var(--WJCT-light-text);
+    }
+
+    .PH-donate-button.gtm_donate {
+      background-color: var(--WJCT-red);
+    }
+
+    .PH-donate-button.gtm_donate {
+      font-size: 1.35rem;
+      font-weight: 900;
+      line-height: 1.2;
+    }
+
+    footer.Page-footer {
+      background-color: var(--WJCT-tertiary);
+    }
+
+    .Page-footer-branding {
+      background-color: black;
+    }
+
+    ul.NavI-items {
+      padding: 0px !important;
+    }
+
+    nav.DropdownNavigation.gtm_nav li.NavI-items-item.gtm_nav_subcat:hover {
+      background-color: rgba(44, 62, 80, 0.2);
+      color: var(--WJCT-primary);
+    }
+
+    .PH-nav-bar {
+      background: none;
+    }
+
+    .PH-nav-bar .NavI .NavI-items .NavigationLink {
+      border-bottom: 0px;
+    }
+
+    ul.NavI-items {
+      background-color: var(--WJCT-tertiary) !important;
+    }
+
+    .NavI .NavigationLink {
+      color: white;
+    }
+
+    .PromoA-category,
+    .PromoB-category,
+    .PromoC-category {
+      display: none;
+    }
+
+    .PromoA-media,
+    .PromoB-media,
+    .PromoC-media {
+      padding-bottom: 10px;
+    }
+
+    .NavI-text {
+      font-weight: 700;
+    }
+
+    li.NavI-items-item.gtm_nav_subcat {
+      font-weight: 500;
+    }
+
+    button.BrightspotPersistentPlayer-volumeControl-toggle {
+      color: black;
+      background-color: #ffcc00;
+      border-radius: 50%;
+      margin-top: 7px;
+      height: 30px;
+      width: 30px;
+    }
+
+    .BrightspotPersistentPlayer-volumeControl-toggle:after,
+    .BrightspotPersistentPlayer-volumeControl-toggleMobile:after {
+      opacity: 0;
+    }
+
+    .noUi-target.noUi-rtl.noUi-vertical.noUi-txt-dir-ltr,
+    .noUi-handle.noUi-handle-lower {
+      width: 8px;
+    }
+
+    .BrightspotPersistentPlayer-drawerToggle {
+      background-color: var(--WJCT-secondary);
+      border-radius: 5px;
+    }
+
+    .BrightspotPersistentPlayer-drawerToggle {
+      padding-right: 0px;
+    }
+
+    .BrightspotPersistentPlayer-tabletDesktopExtraInfo {
+      display: none;
+    }
+
+    .BrightspotPersistentPlayer-drawerControls,
+    .PH-donate-button {
+      height: var(--buttonHeight);
+    }
+
+    .PH-search-button-mobile .icon-magnify,
+    .PH-search-button .icon-magnify,
+    .PH-menu-trigger .burger-menu,
+    .PH-ham-m-close .close-x {
+      fill: white;
+      stroke-width: 1px;
+      stroke: white;
+    }
+
+    ps-header.PH {
+      background-image: url("http://npr-brightspot.s3.amazonaws.com/aa/4d/59ec9482439f9ab1e1a6bbc35122/wjct-news-header-image.png");
+      background-repeat: no-repeat;
+      background-size: cover;
+      padding-top: 45px;
+      border-bottom: none;
+    }
+
+    [data-header-sticky] ps-header.PH {
+      padding-top: 1rem;
+      padding-bottom: 1rem;
     }
 
     ps-brightspot-persistent-player.BrightspotPersistentPlayer {
-      padding-left: 2rem;
-      padding-right: 2rem;
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-end;
     }
 
-    .PH-logo {
+    ps-brightspot-persistent-player.BrightspotPersistentPlayer>.BrightspotPersistentPlayer-streamInfo {
+      order: 1;
+    }
+
+    ps-brightspot-persistent-player.BrightspotPersistentPlayer>.BrightspotPersistentPlayer-playerControls {
       order: 2;
-      margin-right: 0px;
     }
 
-    .PH-logo img {
-      max-width: calc(100vw - 4rem - 160px);
-    }
-  }
-
-  button.PH-menu-trigger,
-  button.PH-ham-m-close {
-    order: 1;
-  }
-
-  .PH-top-bar-content {
-    display: flex;
-    justify-content: flex-start;
-    flex: none;
-  }
-
-  .PH-top-bar {
-    display: flex;
-    justify-content: space-between;
-  }
-
-  ps-header.PH {
-    padding-top: 1rem;
-    padding-bottom: 1rem;
-  }
-
-  .ArticlePage-contentInfo {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
-  .ArticlePage-actions {
-    display: flex;
-    width: 100%;
-    justify-content: flex-end;
-  }
-  }
-
-  div#latestnewscast {
-    text-align: center;
-    line-height: 3;
-  }
-
-  .HtmlModule {
-    margin-bottom: 0px;
-  }
-
-  .Enhancement .PromoXSmall-title .Link,
-  .PromoXSmall-title .Link {
-    text-decoration: none;
-    color: var(--primaryTextColor);
-    font-family: var(--secondaryHeadlineFont), Arial, Helvetica, sans-serif;
-    font-size: 1.3rem;
-  }
-
-  .ListF {
-    padding: 0 20px;
-  }
-
-  .ListTitles-header-title,
-  .ListE-header-title,
-  .ListF-header-title {
-    text-transform: uppercase;
-  }
-
-  /* Footer logos */
-  
-  #family-of-brands .ListLogos-items-item:nth-child(2)::before {
-    content: "[";
-    margin-right: 2rem;
-  }
-
-  #family-of-brands .ListLogos-items-item:last-child::after {
-    content: "]";
-    margin-left: 2rem;
-  }
-
-  #family-of-brands .ListLogos-items-item:nth-child(2)::before,
-  #family-of-brands .ListLogos-items-item:last-child::after {
-    font-size: 50px;
-    font-weight: 200;
-    margin-top: -1rem;
-  }
-
-  @media only screen and (min-width: 768px) {
-    [class$="-column"] .ListF {
-      margin-right: 0px;
+    ps-brightspot-persistent-player.BrightspotPersistentPlayer>.BrightspotPersistentPlayer-volumeControl {
+      order: 3;
     }
 
-    .RadioShowPage-top {
+    ps-brightspot-persistent-player.BrightspotPersistentPlayer>.BrightspotPersistentPlayer-drawerControls {
+      order: 4;
+    }
+
+    .BrightspotPersistentPlayer-streamInfo {
+      text-align: right;
+      display: flex;
+      flex-direction: column;
+      padding: 2rem;
+    }
+
+    .BrightspotPersistentPlayer-playerControls {
+      margin-right: 0;
+    }
+
+    .BrightspotPersistentPlayer-name,
+    .BrightspotPersistentPlayer-programName {
+      font-family: "Montserrat";
+      font-weight: bold;
+    }
+
+    .BrightspotPersistentPlayer-name {
+      order: 2;
+      font-size: 1.3rem;
+    }
+
+    .BrightspotPersistentPlayer-programName {
+      order: 1;
+      font-size: 1.6rem;
+    }
+
+    .BrightspotPersistentPlayer-drawerControls {
+      margin-left: 3rem;
+    }
+
+    .BrightspotPersistentPlayer-volumeControl {
+      display: flex;
+      flex-direction: row;
+      margin-right: 0;
+    }
+
+    button.BrightspotPersistentPlayer-volumeControl-toggle {
+      order: 2;
+      margin-right: 0;
+    }
+
+    .BrightspotPersistentPlayer-volumeControl-slider {
+      order: 1;
+      padding-right: 10px;
+      padding-left: 10px;
+    }
+
+    button.StreamPill {
+      background-color: var(--WJCT-tertiary);
+      color: white;
+    }
+
+    .BrightspotPersistentPlayer {
+      padding-right: 10px;
+    }
+
+    .BrightspotPersistentPlayer-schedule,
+    figcaption.Figure-caption,
+    .NavI .NavigationLink,
+    .PromoC-category,
+    .PromoC-byline,
+    .PromoB-category,
+    .PromoB-byline,
+    .PromoA-category,
+    .PromoA-byline,
+    .ArticlePage-breadcrumbs-wrapper,
+    .ArticlePage-authorName,
+    .ArticlePage-datePublished,
+    .Figure-source,
+    .Figure-credit,
+    .ArticlePage-tags-list a.Link,
+    .ArticlePage-tags-heading,
+    span.StreamPill-text,
+    span.BrightspotPersistentPlayer-drawerToggle-text {
+      font-family: var(--primaryFont);
+    }
+
+    .ArticlePage-datePublished {
+      font-style: italic;
+    }
+
+    .BrightspotPersistentPlayer-schedule,
+    .PromoA-byline,
+    .PromoB-byline,
+    .PromoC-byline {
+      font-weight: 600;
+    }
+
+    .Figure-content {
+      display: flex;
+      flex-direction: column;
+    }
+
+    figcaption.Figure-caption {
+      order: 1;
+      justify-content: flex-start;
+    }
+
+    .Figure-credit-container {
+      order: 2;
+      flex-direction: row;
+      justify-content: flex-start;
+    }
+
+    .PromoD-cta-button[style="background-color:#ee4036"] {
+      color: white;
+      font-weight: 600;
+      font-family: Georgia, 'Times New Roman', Times, serif;
+      font-style: italic;
+      border-radius: 0;
+      margin: 2rem auto 0;
+      text-transform: none;
+      padding: 1rem 2rem;
+    }
+
+    @media only screen and (min-width: 1920px) {}
+
+    @media only screen and (min-width: 1440px) {
+
+      [data-header-sticky] .BrightspotPersistentPlayer-name,
+      [data-header-sticky].BrightspotPersistentPlayer-programName {
+        max-width: 700px;
+      }
+    }
+
+    @media only screen and (min-width: 1280px) {
+
+      .BrightspotPersistentPlayer-name,
+      .BrightspotPersistentPlayer-programName {
+        max-width: 250px;
+      }
+
+      .BrightspotPersistentPlayer-tabletDesktopExtraInfo {
+        margin-left: 425px;
+      }
+
+      .PH-logo {
+        position: absolute;
+        z-index: 50;
+      }
+
+      [data-header-sticky] .PH-logo {
+        position: relative;
+      }
+
+      .PH-logo {
+        display: block;
+        padding-top: 40px;
+      }
+
+      .PH-logo img {
+        width: 534px;
+        height: 98px;
+        max-height: 98px;
+      }
+
+      [data-header-sticky] .PH-logo {
+        padding-top: 0px;
+      }
+
+      [data-header-sticky] .PH-logo img {
+        width: 216px;
+        height: 40px;
+        max-height: 40px;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: contain;
+      }
+
+      [data-toggle-header="hamburger-menu"] .PH-ham-m {
+        z-index: 52;
+      }
+
+      .PH-top-bar {
+        position: relative;
+        z-index: 51;
+        width: 100%;
+        display: flex;
+        height: 100%;
+        align-items: flex-start;
+      }
+
+      .BrightspotPersistentPlayer {
+        padding-right: 0 !important;
+      }
+    }
+
+    @media only screen and (min-width: 1024px) {
+      .BrightspotPersistentPlayer-drawerToggle {
+        padding-right: 12px;
+      }
+    }
+
+    @media only screen and (min-width: 768px) {
+      .BrightspotPersistentPlayer {
+        padding-right: 30px;
+      }
+
+      .PH-persistent-player {
+        background: transparent;
+      }
+
+      [data-header-sticky] .PH-persistent-player {
+        height: 30px;
+        margin-bottom: 1.8rem;
+      }
+    }
+
+    @media only screen and (max-width: 767px) {
+      h1.ArticlePage-headline {
+        font-size: 3rem;
+      }
+
+      .PH-donate-button.gtm_donate a.Link {
+        color: transparent;
+        margin-left: -90px;
+      }
+
+      .PH-persistent-player {
+        background-color: var(--WJCT-tertiary);
+      }
+
+      .PH-donate-button.gtm_donate a.Link:after {
+        color: white;
+        content: "Donate";
+      }
+
+      .BrightspotPersistentPlayer-streamInfo {
+        align-items: flex-start;
+        padding-left: 0;
+      }
+
+      ps-brightspot-persistent-player.BrightspotPersistentPlayer {
+        padding-left: 2rem;
+        padding-right: 2rem;
+      }
+
+      .PH-logo {
+        order: 2;
+        margin-right: 0px;
+      }
+
+      .PH-logo img {
+        max-width: calc(100vw - 4rem - 160px);
+      }
+    }
+
+    button.PH-menu-trigger,
+    button.PH-ham-m-close {
+      order: 1;
+    }
+
+    .PH-top-bar-content {
+      display: flex;
+      justify-content: flex-start;
+      flex: none;
+    }
+
+    .PH-top-bar {
       display: flex;
       justify-content: space-between;
     }
 
-    .RadioShowPage-top-wrapper {
-      order: 1;
+    ps-header.PH {
+      padding-top: 1rem;
+      padding-bottom: 1rem;
     }
 
-    .RadioShowPage-cover-art {
-      order: 2;
+    .ArticlePage-contentInfo {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
     }
-  }
 
-  #whgtdwisponsors .ThreeColumnContainer-column {
-    padding: 0 2rem;
-    display: flex;
-    align-items: flex-end;
-  }
-
-  #whgtdwisponsors .Enhancement {
-    margin: 0;
-  }
-
-  .ArticlePage-breadcrumbs-wrapper {
-    display: none;
-  }
-
-  .RSEP-social,
-  .PCEP-social {
-    display: none;
-  }
-
-  @media screen and (min-width: 1280px) {
-    .FourColumnContainer-row {
-      align-items: center;
-      column-gap: 1rem;
+    .ArticlePage-actions {
+      display: flex;
+      width: 100%;
+      justify-content: flex-end;
     }
-  }</style>
+    }
+
+    div#latestnewscast {
+      text-align: center;
+      line-height: 3;
+    }
+
+    .HtmlModule {
+      margin-bottom: 0px;
+    }
+
+    .Enhancement .PromoXSmall-title .Link,
+    .PromoXSmall-title .Link {
+      text-decoration: none;
+      color: var(--primaryTextColor);
+      font-family: var(--secondaryHeadlineFont), Arial, Helvetica, sans-serif;
+      font-size: 1.3rem;
+    }
+
+    .ListF {
+      padding: 0 20px;
+    }
+
+    .ListTitles-header-title,
+    .ListE-header-title,
+    .ListF-header-title {
+      text-transform: uppercase;
+    }
+
+    /* Footer logos */
+
+    #family-of-brands .ListLogos-items-item:nth-child(2)::before {
+      content: "[";
+      margin-right: 2rem;
+    }
+
+    #family-of-brands .ListLogos-items-item:last-child::after {
+      content: "]";
+      margin-left: 2rem;
+    }
+
+    #family-of-brands .ListLogos-items-item:nth-child(2)::before,
+    #family-of-brands .ListLogos-items-item:last-child::after {
+      font-size: 50px;
+      font-weight: 200;
+      margin-top: -1rem;
+    }
+
+    @media only screen and (min-width: 768px) {
+      [class$="-column"] .ListF {
+        margin-right: 0px;
+      }
+
+      .RadioShowPage-top {
+        display: flex;
+        justify-content: space-between;
+      }
+
+      .RadioShowPage-top-wrapper {
+        order: 1;
+      }
+
+      .RadioShowPage-cover-art {
+        order: 2;
+      }
+    }
+
+    #whgtdwisponsors .ThreeColumnContainer-column {
+      padding: 0 2rem;
+      display: flex;
+      align-items: flex-end;
+    }
+
+    #whgtdwisponsors .Enhancement {
+      margin: 0;
+    }
+
+    .ArticlePage-breadcrumbs-wrapper {
+      display: none;
+    }
+
+    .RSEP-social,
+    .PCEP-social {
+      display: none;
+    }
+
+    @media screen and (min-width: 1280px) {
+      .FourColumnContainer-row {
+        align-items: center;
+        column-gap: 1rem;
+      }
+    }
+  </style>
   <style>
     :root {
       --headerBgColorGrey: rgb(135, 135, 135);
