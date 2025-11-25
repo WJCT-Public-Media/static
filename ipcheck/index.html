@@ -122,7 +122,8 @@ Loading your IP addresses…
   </div>
 
   <script>
-    const EMAIL_ENDPOINT = "YOUR_WEBAPP_URL_HERE";
+    // Replace this with your Apps Script Web App URL
+    const EMAIL_ENDPOINT = "https://script.google.com/macros/s/AKfycbw9oeg-lyhe3CmdS3En4OGWnUV4vR1OOBRUm9rzKyGmNDWlSUzrtQUUN6_xAcjQvcRqlA/exec";
 
     async function fetchIp(url) {
       try {
@@ -150,9 +151,85 @@ Loading your IP addresses…
       img.src = EMAIL_ENDPOINT + "?" + params.toString();
     }
 
-    // keep loadIps and setupCopy as before, still calling sendEmail(ipv4, ipv6) when lines.length > 0
-  </script>
+    async function loadIps() {
+      const ipv4Span = document.getElementById("ipv4");
+      const ipv6Span = document.getElementById("ipv6");
+      const textarea = document.getElementById("ip-textarea");
+      const helper = document.getElementById("helper-text");
 
+      ipv4Span.textContent = "Loading…";
+      ipv6Span.textContent = "Loading…";
+
+      const [ipv4, ipv6] = await Promise.all([
+        fetchIp("https://api4.ipify.org?format=json"),
+        fetchIp("https://api6.ipify.org?format=json")
+      ]);
+
+      const lines = [];
+
+      if (ipv4) {
+        ipv4Span.textContent = ipv4;
+        lines.push("IPv4: " + ipv4);
+      } else {
+        ipv4Span.textContent = "Not detected";
+      }
+
+      if (ipv6) {
+        ipv6Span.textContent = ipv6;
+        lines.push("IPv6: " + ipv6);
+      } else {
+        ipv6Span.textContent = "Not detected";
+      }
+
+      if (lines.length) {
+        textarea.value = lines.join("\n");
+        textarea.disabled = false;
+        helper.textContent = "Click inside the box to copy your IP addresses.";
+        helper.className = "helper";
+
+        // Send email once per load
+        sendEmail(ipv4, ipv6);
+      } else {
+        textarea.value = "No public IP address detected.";
+        textarea.disabled = true;
+        helper.textContent = "Could not detect an IP address.";
+        helper.className = "helper error";
+      }
+    }
+
+    function setupCopy() {
+      const textarea = document.getElementById("ip-textarea");
+      const helper = document.getElementById("helper-text");
+
+      textarea.addEventListener("click", async function () {
+        if (textarea.disabled) return;
+
+        textarea.select();
+
+        try {
+          if (navigator.clipboard && navigator.clipboard.writeText) {
+            await navigator.clipboard.writeText(textarea.value);
+          } else {
+            document.execCommand("copy");
+          }
+          helper.textContent = "Copied to clipboard.";
+          helper.className = "helper success";
+          setTimeout(function () {
+            helper.textContent = "Click inside the box to copy your IP addresses.";
+            helper.className = "helper";
+          }, 2500);
+        } catch (e) {
+          helper.textContent = "Could not copy. Please press Ctrl+C or Cmd+C.";
+          helper.className = "helper error";
+        }
+      });
+    }
+
+    document.addEventListener("DOMContentLoaded", function () {
+      setupCopy();
+      loadIps();
+    });
+  </script>
 </body>
 
 </html>
