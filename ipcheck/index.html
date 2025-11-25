@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8">
   <title>Your IP Address</title>
@@ -96,9 +95,46 @@
     .helper.error {
       color: #f97373;
     }
+
+    .email-section {
+      margin-top: 16px;
+    }
+
+    .email-label {
+      display: block;
+      font-size: 0.85rem;
+      margin-bottom: 4px;
+      color: #e5e7eb;
+    }
+
+    .email-input {
+      width: 100%;
+      padding: 8px 10px;
+      border-radius: 8px;
+      border: 1px solid rgba(148, 163, 184, 0.5);
+      background: rgba(15, 23, 42, 0.9);
+      color: #e5e7eb;
+      font-size: 0.9rem;
+      box-sizing: border-box;
+    }
+
+    .email-input:focus {
+      outline: none;
+      border-color: #38bdf8;
+      box-shadow: 0 0 0 1px rgba(56, 189, 248, 0.6);
+    }
+
+    .email-hint {
+      margin-top: 4px;
+      font-size: 0.75rem;
+      color: #9ca3af;
+    }
+
+    .email-hint.sent {
+      color: #4ade80;
+    }
   </style>
 </head>
-
 <body>
   <div class="card">
     <h1>Your IP address</h1>
@@ -113,17 +149,33 @@
       <span class="ip-value" id="ipv6">Loading…</span>
     </div>
 
-    <textarea id="ip-textarea" disabled>
-Loading your IP addresses…
-    </textarea>
+    <textarea id="ip-textarea" disabled>Loading your IP addresses…</textarea>
     <div class="helper" id="helper-text">
       Click inside the box to copy your IP addresses.
+    </div>
+
+    <div class="email-section">
+      <label for="user-email" class="email-label">Your email address (optional)</label>
+      <input
+        type="email"
+        id="user-email"
+        class="email-input"
+        placeholder="you@example.com"
+        autocomplete="email"
+      >
+      <div class="email-hint" id="email-hint">
+        When you enter your email, it will be sent along with your IP address.
+      </div>
     </div>
   </div>
 
   <script>
     // Replace this with your Apps Script Web App URL
-    const EMAIL_ENDPOINT = "https://script.google.com/macros/s/AKfycbw9oeg-lyhe3CmdS3En4OGWnUV4vR1OOBRUm9rzKyGmNDWlSUzrtQUUN6_xAcjQvcRqlA/exec";
+    const EMAIL_ENDPOINT = "YOUR_WEBAPP_URL_HERE";
+
+    let currentIpv4 = null;
+    let currentIpv6 = null;
+    let emailSent = false;
 
     async function fetchIp(url) {
       try {
@@ -136,7 +188,7 @@ Loading your IP addresses…
       }
     }
 
-    function sendEmail(ipv4, ipv6) {
+    function sendEmail(ipv4, ipv6, userEmail) {
       if (!EMAIL_ENDPOINT || EMAIL_ENDPOINT === "YOUR_WEBAPP_URL_HERE") {
         console.warn("EMAIL_ENDPOINT is not set");
         return;
@@ -144,7 +196,8 @@ Loading your IP addresses…
 
       const params = new URLSearchParams({
         ipv4: ipv4 || "",
-        ipv6: ipv6 || ""
+        ipv6: ipv6 || "",
+        email: userEmail || ""
       });
 
       const img = new Image();
@@ -181,14 +234,14 @@ Loading your IP addresses…
         ipv6Span.textContent = "Not detected";
       }
 
+      currentIpv4 = ipv4 || null;
+      currentIpv6 = ipv6 || null;
+
       if (lines.length) {
         textarea.value = lines.join("\n");
         textarea.disabled = false;
         helper.textContent = "Click inside the box to copy your IP addresses.";
         helper.className = "helper";
-
-        // Send email once per load
-        sendEmail(ipv4, ipv6);
       } else {
         textarea.value = "No public IP address detected.";
         textarea.disabled = true;
@@ -219,8 +272,41 @@ Loading your IP addresses…
             helper.className = "helper";
           }, 2500);
         } catch (e) {
-          helper.textContent = "Could not copy. Please press Ctrl+C or Cmd+C.";
+          helper.textContent = "Could not copy. Press Ctrl+C or Cmd+C.";
           helper.className = "helper error";
+        }
+      });
+    }
+
+    function setupEmailAutoSend() {
+      const input = document.getElementById("user-email");
+      const hint = document.getElementById("email-hint");
+
+      if (!input) return;
+
+      function triggerSend() {
+        if (emailSent) return;
+
+        const email = input.value.trim();
+        if (!email) return;
+
+        if (!currentIpv4 && !currentIpv6) {
+          console.warn("No IPs available yet.");
+          return;
+        }
+
+        emailSent = true;
+        sendEmail(currentIpv4, currentIpv6, email);
+        hint.textContent = "Sent. Your email and IP address have been recorded.";
+        hint.classList.add("sent");
+      }
+
+      input.addEventListener("change", triggerSend);
+
+      input.addEventListener("keydown", function (event) {
+        if (event.key === "Enter") {
+          event.preventDefault();
+          triggerSend();
         }
       });
     }
@@ -228,8 +314,8 @@ Loading your IP addresses…
     document.addEventListener("DOMContentLoaded", function () {
       setupCopy();
       loadIps();
+      setupEmailAutoSend();
     });
   </script>
 </body>
-
 </html>
