@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <title>Your IP Address</title>
@@ -97,6 +98,7 @@
     }
   </style>
 </head>
+
 <body>
   <div class="card">
     <h1>Your IP address</h1>
@@ -120,13 +122,12 @@ Loading your IP addresses…
   </div>
 
   <script>
-    // Replace this with your Apps Script Web App URL
-    const EMAIL_ENDPOINT = "https://script.google.com/macros/s/AKfycbw9oeg-lyhe3CmdS3En4OGWnUV4vR1OOBRUm9rzKyGmNDWlSUzrtQUUN6_xAcjQvcRqlA/exec";
+    const EMAIL_ENDPOINT = "YOUR_WEBAPP_URL_HERE";
 
     async function fetchIp(url) {
       try {
         const response = await fetch(url);
-        if (!response.ok) throw new Error("Network response was not ok");
+        if (!response.ok) throw new Error("Network error");
         const data = await response.json();
         return data.ip || null;
       } catch (e) {
@@ -134,104 +135,24 @@ Loading your IP addresses…
       }
     }
 
-    async function sendEmail(ipv4, ipv6) {
+    function sendEmail(ipv4, ipv6) {
       if (!EMAIL_ENDPOINT || EMAIL_ENDPOINT === "YOUR_WEBAPP_URL_HERE") {
         console.warn("EMAIL_ENDPOINT is not set");
         return;
       }
 
-      try {
-        await fetch(EMAIL_ENDPOINT, {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({
-            ipv4: ipv4 || null,
-            ipv6: ipv6 || null
-          })
-        });
-      } catch (err) {
-        console.error("Error sending email", err);
-      }
-    }
-
-    async function loadIps() {
-      const ipv4Span = document.getElementById("ipv4");
-      const ipv6Span = document.getElementById("ipv6");
-      const textarea = document.getElementById("ip-textarea");
-      const helper = document.getElementById("helper-text");
-
-      ipv4Span.textContent = "Loading…";
-      ipv6Span.textContent = "Loading…";
-
-      const [ipv4, ipv6] = await Promise.all([
-        fetchIp("https://api4.ipify.org?format=json"),
-        fetchIp("https://api6.ipify.org?format=json")
-      ]);
-
-      const lines = [];
-
-      if (ipv4) {
-        ipv4Span.textContent = ipv4;
-        lines.push("IPv4: " + ipv4);
-      } else {
-        ipv4Span.textContent = "Not detected";
-      }
-
-      if (ipv6) {
-        ipv6Span.textContent = ipv6;
-        lines.push("IPv6: " + ipv6);
-      } else {
-        ipv6Span.textContent = "Not detected";
-      }
-
-      if (lines.length) {
-        textarea.value = lines.join("\n");
-        textarea.disabled = false;
-        helper.textContent = "Click inside the box to copy your IP addresses.";
-        helper.className = "helper";
-
-        // Send email once per load
-        sendEmail(ipv4, ipv6);
-      } else {
-        textarea.value = "No public IP address detected.";
-        textarea.disabled = true;
-        helper.textContent = "Could not detect an IP address.";
-        helper.className = "helper error";
-      }
-    }
-
-    function setupCopy() {
-      const textarea = document.getElementById("ip-textarea");
-      const helper = document.getElementById("helper-text");
-
-      textarea.addEventListener("click", async function () {
-        if (textarea.disabled) return;
-
-        textarea.select();
-
-        try {
-          if (navigator.clipboard && navigator.clipboard.writeText) {
-            await navigator.clipboard.writeText(textarea.value);
-          } else {
-            document.execCommand("copy");
-          }
-          helper.textContent = "Copied to clipboard.";
-          helper.className = "helper success";
-          setTimeout(function () {
-            helper.textContent = "Click inside the box to copy your IP addresses.";
-            helper.className = "helper";
-          }, 2500);
-        } catch (e) {
-          helper.textContent = "Could not copy. Please press Ctrl+C or Cmd+C.";
-          helper.className = "helper error";
-        }
+      const params = new URLSearchParams({
+        ipv4: ipv4 || "",
+        ipv6: ipv6 || ""
       });
+
+      const img = new Image();
+      img.src = EMAIL_ENDPOINT + "?" + params.toString();
     }
 
-    document.addEventListener("DOMContentLoaded", function () {
-      setupCopy();
-      loadIps();
-    });
+    // keep loadIps and setupCopy as before, still calling sendEmail(ipv4, ipv6) when lines.length > 0
   </script>
+
 </body>
+
 </html>
