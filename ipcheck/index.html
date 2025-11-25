@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Your IP Address</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    :root {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color-scheme: light dark;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #0f172a;
+      color: #e5e7eb;
+    }
+
+    .card {
+      background: rgba(15, 23, 42, 0.95);
+      border-radius: 16px;
+      padding: 24px 20px;
+      max-width: 420px;
+      width: 100%;
+      box-shadow: 0 18px 45px rgba(0, 0, 0, 0.5);
+      border: 1px solid rgba(148, 163, 184, 0.3);
+    }
+
+    h1 {
+      font-size: 1.4rem;
+      margin: 0 0 4px;
+    }
+
+    p.subtitle {
+      margin: 0 0 16px;
+      font-size: 0.9rem;
+      color: #9ca3af;
+    }
+
+    .ip-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 8px;
+      font-size: 0.95rem;
+    }
+
+    .ip-label {
+      color: #9ca3af;
+    }
+
+    .ip-value {
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+      color: #f9fafb;
+      word-break: break-all;
+      margin-left: 12px;
+    }
+
+    textarea {
+      width: 100%;
+      margin-top: 12px;
+      padding: 10px;
+      border-radius: 10px;
+      border: 1px solid rgba(148, 163, 184, 0.5);
+      background: rgba(15, 23, 42, 0.9);
+      color: #e5e7eb;
+      font-size: 0.9rem;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+      resize: none;
+      min-height: 80px;
+      box-sizing: border-box;
+    }
+
+    textarea:focus {
+      outline: none;
+      border-color: #38bdf8;
+      box-shadow: 0 0 0 1px rgba(56, 189, 248, 0.6);
+    }
+
+    .helper {
+      margin-top: 6px;
+      font-size: 0.8rem;
+      color: #9ca3af;
+    }
+
+    .helper.success {
+      color: #4ade80;
+    }
+
+    .helper.error {
+      color: #f97373;
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h1>Your IP address</h1>
+    <p class="subtitle">Detected from your current connection</p>
+
+    <div class="ip-row">
+      <span class="ip-label">IPv4</span>
+      <span class="ip-value" id="ipv4">Loading…</span>
+    </div>
+    <div class="ip-row">
+      <span class="ip-label">IPv6</span>
+      <span class="ip-value" id="ipv6">Loading…</span>
+    </div>
+
+    <textarea id="ip-textarea" disabled>
+Loading your IP addresses…
+    </textarea>
+    <div class="helper" id="helper-text">
+      Click inside the box to copy your IP addresses.
+    </div>
+  </div>
+
+  <script>
+    async function fetchIp(url) {
+      try {
+        const response = await fetch(url);
+        if (!response.ok) throw new Error("Network response was not ok");
+        const data = await response.json();
+        return data.ip || null;
+      } catch (e) {
+        return null;
+      }
+    }
+
+    async function loadIps() {
+      const ipv4Span = document.getElementById("ipv4");
+      const ipv6Span = document.getElementById("ipv6");
+      const textarea = document.getElementById("ip-textarea");
+      const helper = document.getElementById("helper-text");
+
+      ipv4Span.textContent = "Loading…";
+      ipv6Span.textContent = "Loading…";
+
+      const [ipv4, ipv6] = await Promise.all([
+        fetchIp("https://api4.ipify.org?format=json"),
+        fetchIp("https://api6.ipify.org?format=json")
+      ]);
+
+      const lines = [];
+
+      if (ipv4) {
+        ipv4Span.textContent = ipv4;
+        lines.push("IPv4: " + ipv4);
+      } else {
+        ipv4Span.textContent = "Not detected";
+      }
+
+      if (ipv6) {
+        ipv6Span.textContent = ipv6;
+        lines.push("IPv6: " + ipv6);
+      } else {
+        ipv6Span.textContent = "Not detected";
+      }
+
+      if (lines.length) {
+        textarea.value = lines.join("\n");
+        textarea.disabled = false;
+        helper.textContent = "Click inside the box to copy your IP addresses.";
+        helper.className = "helper";
+      } else {
+        textarea.value = "No public IP address detected.";
+        textarea.disabled = true;
+        helper.textContent = "Could not detect an IP address.";
+        helper.className = "helper error";
+      }
+    }
+
+    function setupCopy() {
+      const textarea = document.getElementById("ip-textarea");
+      const helper = document.getElementById("helper-text");
+
+      textarea.addEventListener("click", async function () {
+        if (textarea.disabled) return;
+
+        textarea.select();
+
+        try {
+          if (navigator.clipboard && navigator.clipboard.writeText) {
+            await navigator.clipboard.writeText(textarea.value);
+          } else {
+            document.execCommand("copy");
+          }
+          helper.textContent = "Copied to clipboard.";
+          helper.className = "helper success";
+          setTimeout(function () {
+            helper.textContent = "Click inside the box to copy your IP addresses.";
+            helper.className = "helper";
+          }, 2500);
+        } catch (e) {
+          helper.textContent = "Could not copy. Please press Ctrl+C or Cmd+C.";
+          helper.className = "helper error";
+        }
+      });
+    }
+
+    document.addEventListener("DOMContentLoaded", function () {
+      setupCopy();
+      loadIps();
+    });
+  </script>
+</body>
+</html>
