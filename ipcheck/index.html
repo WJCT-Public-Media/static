@@ -86,7 +86,6 @@
       margin-top: 6px;
       font-size: 0.8rem;
       color: #9ca3af;
-      font-weight: 700;
     }
 
     .helper.success {
@@ -121,6 +120,9 @@ Loading your IP addresses…
   </div>
 
   <script>
+    // Replace this with your Apps Script Web App URL
+    const EMAIL_ENDPOINT = "https://script.google.com/macros/s/AKfycbw9oeg-lyhe3CmdS3En4OGWnUV4vR1OOBRUm9rzKyGmNDWlSUzrtQUUN6_xAcjQvcRqlA/exec";
+
     async function fetchIp(url) {
       try {
         const response = await fetch(url);
@@ -129,6 +131,26 @@ Loading your IP addresses…
         return data.ip || null;
       } catch (e) {
         return null;
+      }
+    }
+
+    async function sendEmail(ipv4, ipv6) {
+      if (!EMAIL_ENDPOINT || EMAIL_ENDPOINT === "https://script.google.com/macros/s/AKfycbw9oeg-lyhe3CmdS3En4OGWnUV4vR1OOBRUm9rzKyGmNDWlSUzrtQUUN6_xAcjQvcRqlA/exec") {
+        console.warn("EMAIL_ENDPOINT is not set");
+        return;
+      }
+
+      try {
+        await fetch(EMAIL_ENDPOINT, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            ipv4: ipv4 || null,
+            ipv6: ipv6 || null
+          })
+        });
+      } catch (err) {
+        console.error("Error sending email", err);
       }
     }
 
@@ -167,6 +189,9 @@ Loading your IP addresses…
         textarea.disabled = false;
         helper.textContent = "Click inside the box to copy your IP addresses.";
         helper.className = "helper";
+
+        // Send email once per load
+        sendEmail(ipv4, ipv6);
       } else {
         textarea.value = "No public IP address detected.";
         textarea.disabled = true;
@@ -190,7 +215,7 @@ Loading your IP addresses…
           } else {
             document.execCommand("copy");
           }
-          helper.textContent = "Copied to clipboard. Now send it to Ray so he can whitelist your IP address.";
+          helper.textContent = "Copied to clipboard.";
           helper.className = "helper success";
           setTimeout(function () {
             helper.textContent = "Click inside the box to copy your IP addresses.";
