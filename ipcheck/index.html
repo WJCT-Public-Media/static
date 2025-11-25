@@ -86,6 +86,7 @@
       margin-top: 6px;
       font-size: 0.8rem;
       color: #9ca3af;
+      font-weight: 700;
     }
 
     .helper.success {
@@ -189,7 +190,7 @@ Loading your IP addresses…
           } else {
             document.execCommand("copy");
           }
-          helper.textContent = "Copied to clipboard.";
+          helper.textContent = "Copied to clipboard. Now send it to Ray so he can whitelist your IP address.";
           helper.className = "helper success";
           setTimeout(function () {
             helper.textContent = "Click inside the box to copy your IP addresses.";
